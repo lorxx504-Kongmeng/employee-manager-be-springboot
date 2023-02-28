@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/employee")
 public class EmployeeController {
@@ -21,6 +22,7 @@ public class EmployeeController {
         List<Employee> employees = employeeService.findAllEmployees();
         return new ResponseEntity<>(employees, HttpStatus.OK);
     }
+
     @GetMapping("/find/{id}")
     public ResponseEntity<Employee> getEmployeeId(@PathVariable("id") Long id) {
         Employee employee = employeeService.findEmployeeById(id);
